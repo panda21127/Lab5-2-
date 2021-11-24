@@ -48,7 +48,101 @@ void pechati(double** A, int N, int M)
 	}
 }
 int f1(double** A, int N, int M)
+{/*
+
+Создать динамическую вещественную матрицу NxM (N и M ввести с клавиатуры).
+
+Размещение в памяти: все строки матрицы располагаются в едином массиве (один запрос на выделение NxM элементов).
+
+Создать функцию, которая формирует массив результатов - возвращает указатели на нулевые элементы в заштрихованной области .
+
+*/
+
+
+
+#include <iostream>
+
+#include <ctime>
+
+#include <windows.h>
+
+#include <ctime>
+
+using namespace std;
+
+
+
+void incilization(double** A, int N, int M)
+
 {
+
+	for (int i = 0; i < N; i++)
+
+	{
+
+		for (int j = 0; j < M; j++)
+
+		{
+
+			A[i][j] = (double)(rand() % 3 - 1) / 2;
+
+		}
+
+	}
+
+}
+
+void pechati(double** A, int N, int M)
+
+{
+
+	for (int i = 0; i < N; i++)
+
+	{
+
+		for (int j = 0; j < M; j++)
+
+		{
+
+			if ((A[i][j]) >= 0)
+
+			{
+
+				cout << " ";
+
+			}
+
+			if (i < N / 2)
+
+			{
+
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 3);
+
+				cout << A[i][j] << '\t';
+
+
+
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+
+			}
+
+			else
+
+			{
+
+
+
+				cout << A[i][j] << '\t';
+
+
+
+			}
+
+		}
+
+		cout << '\n';
+
+	}
 	int sum = 0;
 	{
 		cout << "Местоположение нуля(ей) в строке ";
